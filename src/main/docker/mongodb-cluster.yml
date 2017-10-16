@@ -1,0 +1,16 @@
+version: '2'
+services:
+    mpm_ng-mongodb:
+        image: mongo:3.4.8
+        ports:
+            - "27017:27017"
+        command: mongos --configdb mpm_ng-mongodb-config
+    mpm_ng-mongodb-node:
+        build:
+            context: .
+            dockerfile: mongodb/MongoDB.Dockerfile
+        command: mongod --replSet rs1 --noprealloc --smallfiles
+    mpm_ng-mongodb-config:
+        image: mongo:3.4.8
+        container_name: mpm_ng-mongodb-config
+        command: mongod --noprealloc --smallfiles --configsvr --dbpath /data/db

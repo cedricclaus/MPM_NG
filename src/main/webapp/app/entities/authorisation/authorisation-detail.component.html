@@ -1,0 +1,89 @@
+
+<div *ngIf="authorisation">
+    <h2><span>Authorisation</span> {{authorisation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Cti</span></dt>
+        <dd>
+            <span>{{authorisation.cti}}</span>
+        </dd>
+        <dt><span>Authorisation Nbr</span></dt>
+        <dd>
+            <span>{{authorisation.authorisationNbr}}</span>
+        </dd>
+        <dt><span>Authorisation Date</span></dt>
+        <dd>
+            <span>{{authorisation.authorisationDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Radiation Date</span></dt>
+        <dd>
+            <span>{{authorisation.radiationDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Suspension Date</span></dt>
+        <dd>
+            <span>{{authorisation.suspensionDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Radiation Note</span></dt>
+        <dd>
+            <span>{{authorisation.radiationNote}}</span>
+        </dd>
+        <dt><span>Suspension Note</span></dt>
+        <dd>
+            <span>{{authorisation.suspensionNote}}</span>
+        </dd>
+        <dt><span>Strength</span></dt>
+        <dd>
+            <span>{{authorisation.strength}}</span>
+        </dd>
+        <dt><span>Pc Name</span></dt>
+        <dd>
+            <span>{{authorisation.pcName}}</span>
+        </dd>
+        <dt><span>Pc Id</span></dt>
+        <dd>
+            <span>{{authorisation.pcId}}</span>
+        </dd>
+        <dt><span>Pc Nbr</span></dt>
+        <dd>
+            <span>{{authorisation.pcNbr}}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{authorisation.name}}</span>
+        </dd>
+        <dt><span>Status</span></dt>
+        <dd>
+            <span>{{authorisation.status}}</span>
+        </dd>
+        <dt><span>Status Id</span></dt>
+        <dd>
+            <span>{{authorisation.statusId}}</span>
+        </dd>
+        <dt><span>Pg Usage</span></dt>
+        <dd>
+            <span>{{authorisation.pgUsage}}</span>
+        </dd>
+        <dt><span>Pg Procedure Type</span></dt>
+        <dd>
+            <span>{{authorisation.pgProcedureType}}</span>
+        </dd>
+        <dt><span>Pg Authorisation Type</span></dt>
+        <dd>
+            <span>{{authorisation.pgAuthorisationType}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'authorisation/'+ authorisation.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

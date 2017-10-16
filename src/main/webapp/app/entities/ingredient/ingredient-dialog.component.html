@@ -1,0 +1,118 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myIngredientLabel">Create or edit a Ingredient</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!ingredient.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="ingredient.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_en">En</label>
+            <input type="text" class="form-control" name="en" id="field_en"
+                [(ngModel)]="ingredient.en"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_fr">Fr</label>
+            <input type="text" class="form-control" name="fr" id="field_fr"
+                [(ngModel)]="ingredient.fr"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_de">De</label>
+            <input type="text" class="form-control" name="de" id="field_de"
+                [(ngModel)]="ingredient.de"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_nl">Nl</label>
+            <input type="text" class="form-control" name="nl" id="field_nl"
+                [(ngModel)]="ingredient.nl"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_category">Category</label>
+            <input type="text" class="form-control" name="category" id="field_category"
+                [(ngModel)]="ingredient.category"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_notes">Notes</label>
+            <input type="text" class="form-control" name="notes" id="field_notes"
+                [(ngModel)]="ingredient.notes"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_snomedCTId">Snomed CT Id</label>
+            <input type="text" class="form-control" name="snomedCTId" id="field_snomedCTId"
+                [(ngModel)]="ingredient.snomedCTId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_synonyms">Synonyms</label>
+            <input type="text" class="form-control" name="synonyms" id="field_synonyms"
+                [(ngModel)]="ingredient.synonyms"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_casCode">Cas Code</label>
+            <input type="text" class="form-control" name="casCode" id="field_casCode"
+                [(ngModel)]="ingredient.casCode"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_deprecated">Deprecated</label>
+            <input type="checkbox" class="form-control" name="deprecated" id="field_deprecated"
+                [(ngModel)]="ingredient.deprecated"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_innovation">Innovation</label>
+            <input type="checkbox" class="form-control" name="innovation" id="field_innovation"
+                [(ngModel)]="ingredient.innovation"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_creationDateUsageHum">Creation Date Usage Hum</label>
+            <div class="input-group">
+                <input id="field_creationDateUsageHum" type="text" class="form-control" name="creationDateUsageHum" ngbDatepicker  #creationDateUsageHumDp="ngbDatepicker" [(ngModel)]="ingredient.creationDateUsageHum"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="creationDateUsageHumDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_creationDateUsageVet">Creation Date Usage Vet</label>
+            <div class="input-group">
+                <input id="field_creationDateUsageVet" type="text" class="form-control" name="creationDateUsageVet" ngbDatepicker  #creationDateUsageVetDp="ngbDatepicker" [(ngModel)]="ingredient.creationDateUsageVet"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="creationDateUsageVetDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_residualProduct">Residual Product</label>
+            <input type="checkbox" class="form-control" name="residualProduct" id="field_residualProduct"
+                [(ngModel)]="ingredient.residualProduct"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_type">Type</label>
+            <select class="form-control" name="type" [(ngModel)]="ingredient.type" id="field_type"  required>
+                <option value="ACTIVE_SUBSTANCE">ACTIVE_SUBSTANCE</option>
+                <option value="EXCIPIENT">EXCIPIENT</option>
+            </select>
+            <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.type?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

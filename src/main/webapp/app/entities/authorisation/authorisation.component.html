@@ -1,0 +1,96 @@
+<div>
+    <h2>
+        <span>Authorisations</span>
+        <button class="btn btn-primary float-right jh-create-entity create-authorisation" [routerLink]="['/', { outlets: { popup: ['authorisation-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Authorisation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="authorisations">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="cti"><span>Cti</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="authorisationNbr"><span>Authorisation Nbr</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="authorisationDate"><span>Authorisation Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="radiationDate"><span>Radiation Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="suspensionDate"><span>Suspension Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="radiationNote"><span>Radiation Note</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="suspensionNote"><span>Suspension Note</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="strength"><span>Strength</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pcName"><span>Pc Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pcId"><span>Pc Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pcNbr"><span>Pc Nbr</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span>Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="status"><span>Status</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="statusId"><span>Status Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pgUsage"><span>Pg Usage</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pgProcedureType"><span>Pg Procedure Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pgAuthorisationType"><span>Pg Authorisation Type</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let authorisation of authorisations ;trackBy: trackId">
+                <td><a [routerLink]="['../authorisation', authorisation.id ]">{{authorisation.id}}</a></td>
+                <td>{{authorisation.cti}}</td>
+                <td>{{authorisation.authorisationNbr}}</td>
+                <td>{{authorisation.authorisationDate | date:'mediumDate'}}</td>
+                <td>{{authorisation.radiationDate | date:'mediumDate'}}</td>
+                <td>{{authorisation.suspensionDate | date:'mediumDate'}}</td>
+                <td>{{authorisation.radiationNote}}</td>
+                <td>{{authorisation.suspensionNote}}</td>
+                <td>{{authorisation.strength}}</td>
+                <td>{{authorisation.pcName}}</td>
+                <td>{{authorisation.pcId}}</td>
+                <td>{{authorisation.pcNbr}}</td>
+                <td>{{authorisation.name}}</td>
+                <td>{{authorisation.status}}</td>
+                <td>{{authorisation.statusId}}</td>
+                <td>{{authorisation.pgUsage}}</td>
+                <td>{{authorisation.pgProcedureType}}</td>
+                <td>{{authorisation.pgAuthorisationType}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../authorisation', authorisation.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'authorisation/'+ authorisation.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'authorisation/'+ authorisation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="authorisations && authorisations.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,53 @@
+
+<div *ngIf="unit">
+    <h2><span>Unit</span> {{unit.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{unit.code}}</span>
+        </dd>
+        <dt><span>En</span></dt>
+        <dd>
+            <span>{{unit.en}}</span>
+        </dd>
+        <dt><span>Fr</span></dt>
+        <dd>
+            <span>{{unit.fr}}</span>
+        </dd>
+        <dt><span>De</span></dt>
+        <dd>
+            <span>{{unit.de}}</span>
+        </dd>
+        <dt><span>Nl</span></dt>
+        <dd>
+            <span>{{unit.nl}}</span>
+        </dd>
+        <dt><span>Ucum</span></dt>
+        <dd>
+            <span>{{unit.ucum}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{unit.description}}</span>
+        </dd>
+        <dt><span>Deprecated</span></dt>
+        <dd>
+            <span>{{unit.deprecated}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'unit/'+ unit.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

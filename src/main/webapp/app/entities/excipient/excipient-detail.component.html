@@ -1,0 +1,73 @@
+
+<div *ngIf="excipient">
+    <h2><span>Excipient</span> {{excipient.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{excipient.name}}</span>
+        </dd>
+        <dt><span>Notes</span></dt>
+        <dd>
+            <span>{{excipient.notes}}</span>
+        </dd>
+        <dt><span>Additional Info</span></dt>
+        <dd>
+            <span>{{excipient.additionalInfo}}</span>
+        </dd>
+        <dt><span>Amount</span></dt>
+        <dd>
+            <span>{{excipient.amount}}</span>
+        </dd>
+        <dt><span>Non Numerical Amount</span></dt>
+        <dd>
+            <span>{{excipient.nonNumericalAmount}}</span>
+        </dd>
+        <dt><span>Unit Id</span></dt>
+        <dd>
+            <span>{{excipient.unitId}}</span>
+        </dd>
+        <dt><span>Unit</span></dt>
+        <dd>
+            <span>{{excipient.unit}}</span>
+        </dd>
+        <dt><span>Pc Id</span></dt>
+        <dd>
+            <span>{{excipient.pcId}}</span>
+        </dd>
+        <dt><span>Pcc Id</span></dt>
+        <dd>
+            <span>{{excipient.pccId}}</span>
+        </dd>
+        <dt><span>Pcc En</span></dt>
+        <dd>
+            <span>{{excipient.pccEn}}</span>
+        </dd>
+        <dt><span>Ingredient Id</span></dt>
+        <dd>
+            <span>{{excipient.ingredientId}}</span>
+        </dd>
+        <dt><span>Belongs To</span></dt>
+        <dd>
+            <span>{{excipient.belongsTo}}</span>
+        </dd>
+        <dt><span>Known Effect</span></dt>
+        <dd>
+            <span>{{excipient.knownEffect}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'excipient/'+ excipient.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

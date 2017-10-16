@@ -1,0 +1,83 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ingredientId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "asEquivalent",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "additionalInfo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "amountEq",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "nonNumericalAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nonNumericalAmountEq",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unitId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unitEq",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unitEqId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pcId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pccId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pccEn",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ingredientEqId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "active_substance",
+    "pagination": "pagination",
+    "microserviceName": "MPMSubstance",
+    "searchEngine": false
+}

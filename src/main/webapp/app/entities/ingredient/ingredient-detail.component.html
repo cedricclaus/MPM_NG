@@ -1,0 +1,81 @@
+
+<div *ngIf="ingredient">
+    <h2><span>Ingredient</span> {{ingredient.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>En</span></dt>
+        <dd>
+            <span>{{ingredient.en}}</span>
+        </dd>
+        <dt><span>Fr</span></dt>
+        <dd>
+            <span>{{ingredient.fr}}</span>
+        </dd>
+        <dt><span>De</span></dt>
+        <dd>
+            <span>{{ingredient.de}}</span>
+        </dd>
+        <dt><span>Nl</span></dt>
+        <dd>
+            <span>{{ingredient.nl}}</span>
+        </dd>
+        <dt><span>Category</span></dt>
+        <dd>
+            <span>{{ingredient.category}}</span>
+        </dd>
+        <dt><span>Notes</span></dt>
+        <dd>
+            <span>{{ingredient.notes}}</span>
+        </dd>
+        <dt><span>Snomed CT Id</span></dt>
+        <dd>
+            <span>{{ingredient.snomedCTId}}</span>
+        </dd>
+        <dt><span>Synonyms</span></dt>
+        <dd>
+            <span>{{ingredient.synonyms}}</span>
+        </dd>
+        <dt><span>Cas Code</span></dt>
+        <dd>
+            <span>{{ingredient.casCode}}</span>
+        </dd>
+        <dt><span>Deprecated</span></dt>
+        <dd>
+            <span>{{ingredient.deprecated}}</span>
+        </dd>
+        <dt><span>Innovation</span></dt>
+        <dd>
+            <span>{{ingredient.innovation}}</span>
+        </dd>
+        <dt><span>Creation Date Usage Hum</span></dt>
+        <dd>
+            <span>{{ingredient.creationDateUsageHum | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Creation Date Usage Vet</span></dt>
+        <dd>
+            <span>{{ingredient.creationDateUsageVet | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Residual Product</span></dt>
+        <dd>
+            <span>{{ingredient.residualProduct}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{ingredient.type}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ingredient/'+ ingredient.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

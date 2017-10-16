@@ -1,0 +1,67 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "additionalInfo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "nonNumericalAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unitId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pcId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pccId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pccEn",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ingredientId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "belongsTo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "knownEffect",
+            "fieldType": "Boolean"
+        }
+    ],
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "active_substance",
+    "pagination": "pagination",
+    "microserviceName": "MPMSubstance",
+    "searchEngine": false
+}

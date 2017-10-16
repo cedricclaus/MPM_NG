@@ -1,0 +1,96 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myExcipientLabel">Create or edit a Excipient</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!excipient.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="excipient.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="excipient.name"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_notes">Notes</label>
+            <input type="text" class="form-control" name="notes" id="field_notes"
+                [(ngModel)]="excipient.notes"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_additionalInfo">Additional Info</label>
+            <input type="text" class="form-control" name="additionalInfo" id="field_additionalInfo"
+                [(ngModel)]="excipient.additionalInfo"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_amount">Amount</label>
+            <input type="number" class="form-control" name="amount" id="field_amount"
+                [(ngModel)]="excipient.amount"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_nonNumericalAmount">Non Numerical Amount</label>
+            <input type="text" class="form-control" name="nonNumericalAmount" id="field_nonNumericalAmount"
+                [(ngModel)]="excipient.nonNumericalAmount"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_unitId">Unit Id</label>
+            <input type="text" class="form-control" name="unitId" id="field_unitId"
+                [(ngModel)]="excipient.unitId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_unit">Unit</label>
+            <input type="text" class="form-control" name="unit" id="field_unit"
+                [(ngModel)]="excipient.unit"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pcId">Pc Id</label>
+            <input type="text" class="form-control" name="pcId" id="field_pcId"
+                [(ngModel)]="excipient.pcId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pccId">Pcc Id</label>
+            <input type="text" class="form-control" name="pccId" id="field_pccId"
+                [(ngModel)]="excipient.pccId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pccEn">Pcc En</label>
+            <input type="text" class="form-control" name="pccEn" id="field_pccEn"
+                [(ngModel)]="excipient.pccEn"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_ingredientId">Ingredient Id</label>
+            <input type="text" class="form-control" name="ingredientId" id="field_ingredientId"
+                [(ngModel)]="excipient.ingredientId" required />
+            <div [hidden]="!(editForm.controls.ingredientId?.dirty && editForm.controls.ingredientId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ingredientId?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_belongsTo">Belongs To</label>
+            <input type="text" class="form-control" name="belongsTo" id="field_belongsTo"
+                [(ngModel)]="excipient.belongsTo"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_knownEffect">Known Effect</label>
+            <input type="checkbox" class="form-control" name="knownEffect" id="field_knownEffect"
+                [(ngModel)]="excipient.knownEffect"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

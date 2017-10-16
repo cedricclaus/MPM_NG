@@ -1,0 +1,147 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myProductGroupLabel">Create or edit a Product Group</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!productGroup.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="productGroup.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="productGroup.name" required />
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_number">Number</label>
+            <input type="text" class="form-control" name="number" id="field_number"
+                [(ngModel)]="productGroup.number" required />
+            <div [hidden]="!(editForm.controls.number?.dirty && editForm.controls.number?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.number?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_deprecated">Deprecated</label>
+            <input type="checkbox" class="form-control" name="deprecated" id="field_deprecated"
+                [(ngModel)]="productGroup.deprecated"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_usageCode">Usage Code</label>
+            <input type="text" class="form-control" name="usageCode" id="field_usageCode"
+                [(ngModel)]="productGroup.usageCode" required />
+            <div [hidden]="!(editForm.controls.usageCode?.dirty && editForm.controls.usageCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.usageCode?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_usageId">Usage Id</label>
+            <input type="text" class="form-control" name="usageId" id="field_usageId"
+                [(ngModel)]="productGroup.usageId" required />
+            <div [hidden]="!(editForm.controls.usageId?.dirty && editForm.controls.usageId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.usageId?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_procedureTypeCode">Procedure Type Code</label>
+            <input type="text" class="form-control" name="procedureTypeCode" id="field_procedureTypeCode"
+                [(ngModel)]="productGroup.procedureTypeCode" required />
+            <div [hidden]="!(editForm.controls.procedureTypeCode?.dirty && editForm.controls.procedureTypeCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.procedureTypeCode?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_procedureTypeId">Procedure Type Id</label>
+            <input type="text" class="form-control" name="procedureTypeId" id="field_procedureTypeId"
+                [(ngModel)]="productGroup.procedureTypeId" required />
+            <div [hidden]="!(editForm.controls.procedureTypeId?.dirty && editForm.controls.procedureTypeId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.procedureTypeId?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_autorizationTypeCode">Autorization Type Code</label>
+            <input type="text" class="form-control" name="autorizationTypeCode" id="field_autorizationTypeCode"
+                [(ngModel)]="productGroup.autorizationTypeCode" required />
+            <div [hidden]="!(editForm.controls.autorizationTypeCode?.dirty && editForm.controls.autorizationTypeCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.autorizationTypeCode?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_autorizationTypeId">Autorization Type Id</label>
+            <input type="text" class="form-control" name="autorizationTypeId" id="field_autorizationTypeId"
+                [(ngModel)]="productGroup.autorizationTypeId" required />
+            <div [hidden]="!(editForm.controls.autorizationTypeId?.dirty && editForm.controls.autorizationTypeId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.autorizationTypeId?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_productTypeCode">Product Type Code</label>
+            <input type="text" class="form-control" name="productTypeCode" id="field_productTypeCode"
+                [(ngModel)]="productGroup.productTypeCode" required />
+            <div [hidden]="!(editForm.controls.productTypeCode?.dirty && editForm.controls.productTypeCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.productTypeCode?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_productTypeId">Product Type Id</label>
+            <input type="text" class="form-control" name="productTypeId" id="field_productTypeId"
+                [(ngModel)]="productGroup.productTypeId" required />
+            <div [hidden]="!(editForm.controls.productTypeId?.dirty && editForm.controls.productTypeId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.productTypeId?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_alloHomeo">Allo Homeo</label>
+            <select class="form-control" name="alloHomeo" [(ngModel)]="productGroup.alloHomeo" id="field_alloHomeo" >
+                <option value="ALLOPATHIC">ALLOPATHIC</option>
+                <option value="HOMEOPATHIC">HOMEOPATHIC</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

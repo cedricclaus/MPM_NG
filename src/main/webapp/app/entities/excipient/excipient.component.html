@@ -1,0 +1,88 @@
+<div>
+    <h2>
+        <span>Excipients</span>
+        <button class="btn btn-primary float-right jh-create-entity create-excipient" [routerLink]="['/', { outlets: { popup: ['excipient-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Excipient
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="excipients">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span>Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="notes"><span>Notes</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="additionalInfo"><span>Additional Info</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="amount"><span>Amount</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nonNumericalAmount"><span>Non Numerical Amount</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="unitId"><span>Unit Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="unit"><span>Unit</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pcId"><span>Pc Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pccId"><span>Pcc Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pccEn"><span>Pcc En</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ingredientId"><span>Ingredient Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="belongsTo"><span>Belongs To</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="knownEffect"><span>Known Effect</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let excipient of excipients ;trackBy: trackId">
+                <td><a [routerLink]="['../excipient', excipient.id ]">{{excipient.id}}</a></td>
+                <td>{{excipient.name}}</td>
+                <td>{{excipient.notes}}</td>
+                <td>{{excipient.additionalInfo}}</td>
+                <td>{{excipient.amount}}</td>
+                <td>{{excipient.nonNumericalAmount}}</td>
+                <td>{{excipient.unitId}}</td>
+                <td>{{excipient.unit}}</td>
+                <td>{{excipient.pcId}}</td>
+                <td>{{excipient.pccId}}</td>
+                <td>{{excipient.pccEn}}</td>
+                <td>{{excipient.ingredientId}}</td>
+                <td>{{excipient.belongsTo}}</td>
+                <td>{{excipient.knownEffect}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../excipient', excipient.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'excipient/'+ excipient.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'excipient/'+ excipient.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="excipients && excipients.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

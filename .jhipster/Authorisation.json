@@ -1,0 +1,80 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "cti",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "authorisationNbr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "authorisationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "radiationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "suspensionDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "radiationNote",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "suspensionNote",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "strength",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pcName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pcId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pcNbr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "statusId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pgUsage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pgProcedureType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pgAuthorisationType",
+            "fieldType": "String"
+        }
+    ],
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "authorisation",
+    "pagination": "pagination",
+    "microserviceName": "MPMAuthorization",
+    "searchEngine": false
+}

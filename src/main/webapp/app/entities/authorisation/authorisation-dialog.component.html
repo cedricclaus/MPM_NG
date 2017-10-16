@@ -1,0 +1,125 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAuthorisationLabel">Create or edit a Authorisation</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!authorisation.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="authorisation.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_cti">Cti</label>
+            <input type="text" class="form-control" name="cti" id="field_cti"
+                [(ngModel)]="authorisation.cti"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_authorisationNbr">Authorisation Nbr</label>
+            <input type="text" class="form-control" name="authorisationNbr" id="field_authorisationNbr"
+                [(ngModel)]="authorisation.authorisationNbr"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_authorisationDate">Authorisation Date</label>
+            <div class="input-group">
+                <input id="field_authorisationDate" type="text" class="form-control" name="authorisationDate" ngbDatepicker  #authorisationDateDp="ngbDatepicker" [(ngModel)]="authorisation.authorisationDate"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="authorisationDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_radiationDate">Radiation Date</label>
+            <div class="input-group">
+                <input id="field_radiationDate" type="text" class="form-control" name="radiationDate" ngbDatepicker  #radiationDateDp="ngbDatepicker" [(ngModel)]="authorisation.radiationDate"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="radiationDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_suspensionDate">Suspension Date</label>
+            <div class="input-group">
+                <input id="field_suspensionDate" type="text" class="form-control" name="suspensionDate" ngbDatepicker  #suspensionDateDp="ngbDatepicker" [(ngModel)]="authorisation.suspensionDate"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="suspensionDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_radiationNote">Radiation Note</label>
+            <input type="text" class="form-control" name="radiationNote" id="field_radiationNote"
+                [(ngModel)]="authorisation.radiationNote"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_suspensionNote">Suspension Note</label>
+            <input type="text" class="form-control" name="suspensionNote" id="field_suspensionNote"
+                [(ngModel)]="authorisation.suspensionNote"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_strength">Strength</label>
+            <input type="text" class="form-control" name="strength" id="field_strength"
+                [(ngModel)]="authorisation.strength"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pcName">Pc Name</label>
+            <input type="text" class="form-control" name="pcName" id="field_pcName"
+                [(ngModel)]="authorisation.pcName"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pcId">Pc Id</label>
+            <input type="text" class="form-control" name="pcId" id="field_pcId"
+                [(ngModel)]="authorisation.pcId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pcNbr">Pc Nbr</label>
+            <input type="text" class="form-control" name="pcNbr" id="field_pcNbr"
+                [(ngModel)]="authorisation.pcNbr"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="authorisation.name"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status"
+                [(ngModel)]="authorisation.status"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_statusId">Status Id</label>
+            <input type="text" class="form-control" name="statusId" id="field_statusId"
+                [(ngModel)]="authorisation.statusId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pgUsage">Pg Usage</label>
+            <input type="text" class="form-control" name="pgUsage" id="field_pgUsage"
+                [(ngModel)]="authorisation.pgUsage"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pgProcedureType">Pg Procedure Type</label>
+            <input type="text" class="form-control" name="pgProcedureType" id="field_pgProcedureType"
+                [(ngModel)]="authorisation.pgProcedureType"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pgAuthorisationType">Pg Authorisation Type</label>
+            <input type="text" class="form-control" name="pgAuthorisationType" id="field_pgAuthorisationType"
+                [(ngModel)]="authorisation.pgAuthorisationType"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

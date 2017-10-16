@@ -1,0 +1,96 @@
+<div>
+    <h2>
+        <span>Active Substances</span>
+        <button class="btn btn-primary float-right jh-create-entity create-active-substance" [routerLink]="['/', { outlets: { popup: ['active-substance-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Active Substance
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="activeSubstances">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span>Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ingredientId"><span>Ingredient Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="notes"><span>Notes</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="asEquivalent"><span>As Equivalent</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="additionalInfo"><span>Additional Info</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="amount"><span>Amount</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="amountEq"><span>Amount Eq</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nonNumericalAmount"><span>Non Numerical Amount</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nonNumericalAmountEq"><span>Non Numerical Amount Eq</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="unitId"><span>Unit Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="unit"><span>Unit</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="unitEq"><span>Unit Eq</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="unitEqId"><span>Unit Eq Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pcId"><span>Pc Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pccId"><span>Pcc Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pccEn"><span>Pcc En</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ingredientEqId"><span>Ingredient Eq Id</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let activeSubstance of activeSubstances ;trackBy: trackId">
+                <td><a [routerLink]="['../active-substance', activeSubstance.id ]">{{activeSubstance.id}}</a></td>
+                <td>{{activeSubstance.name}}</td>
+                <td>{{activeSubstance.ingredientId}}</td>
+                <td>{{activeSubstance.notes}}</td>
+                <td>{{activeSubstance.asEquivalent}}</td>
+                <td>{{activeSubstance.additionalInfo}}</td>
+                <td>{{activeSubstance.amount}}</td>
+                <td>{{activeSubstance.amountEq}}</td>
+                <td>{{activeSubstance.nonNumericalAmount}}</td>
+                <td>{{activeSubstance.nonNumericalAmountEq}}</td>
+                <td>{{activeSubstance.unitId}}</td>
+                <td>{{activeSubstance.unit}}</td>
+                <td>{{activeSubstance.unitEq}}</td>
+                <td>{{activeSubstance.unitEqId}}</td>
+                <td>{{activeSubstance.pcId}}</td>
+                <td>{{activeSubstance.pccId}}</td>
+                <td>{{activeSubstance.pccEn}}</td>
+                <td>{{activeSubstance.ingredientEqId}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../active-substance', activeSubstance.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'active-substance/'+ activeSubstance.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'active-substance/'+ activeSubstance.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="activeSubstances && activeSubstances.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

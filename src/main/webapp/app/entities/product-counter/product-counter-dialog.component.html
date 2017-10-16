@@ -1,0 +1,84 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myProductCounterLabel">Create or edit a Product Counter</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!productCounter.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="productCounter.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="productCounter.name" required />
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_number">Number</label>
+            <input type="text" class="form-control" name="number" id="field_number"
+                [(ngModel)]="productCounter.number" required />
+            <div [hidden]="!(editForm.controls.number?.dirty && editForm.controls.number?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.number?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_strength">Strength</label>
+            <input type="text" class="form-control" name="strength" id="field_strength"
+                [(ngModel)]="productCounter.strength"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pharmaceuticalForm">Pharmaceutical Form</label>
+            <input type="text" class="form-control" name="pharmaceuticalForm" id="field_pharmaceuticalForm"
+                [(ngModel)]="productCounter.pharmaceuticalForm"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status"
+                [(ngModel)]="productCounter.status" required />
+            <div [hidden]="!(editForm.controls.status?.dirty && editForm.controls.status?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.status?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_statusId">Status Id</label>
+            <input type="text" class="form-control" name="statusId" id="field_statusId"
+                [(ngModel)]="productCounter.statusId" required />
+            <div [hidden]="!(editForm.controls.statusId?.dirty && editForm.controls.statusId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.statusId?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pcId">Pc Id</label>
+            <input type="text" class="form-control" name="pcId" id="field_pcId"
+                [(ngModel)]="productCounter.pcId"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,92 @@
+<div>
+    <h2>
+        <span>Ingredients</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ingredient" [routerLink]="['/', { outlets: { popup: ['ingredient-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Ingredient
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ingredients">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="en"><span>En</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fr"><span>Fr</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="de"><span>De</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nl"><span>Nl</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="category"><span>Category</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="notes"><span>Notes</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="snomedCTId"><span>Snomed CT Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="synonyms"><span>Synonyms</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="casCode"><span>Cas Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="deprecated"><span>Deprecated</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="innovation"><span>Innovation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="creationDateUsageHum"><span>Creation Date Usage Hum</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="creationDateUsageVet"><span>Creation Date Usage Vet</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="residualProduct"><span>Residual Product</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="type"><span>Type</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ingredient of ingredients ;trackBy: trackId">
+                <td><a [routerLink]="['../ingredient', ingredient.id ]">{{ingredient.id}}</a></td>
+                <td>{{ingredient.en}}</td>
+                <td>{{ingredient.fr}}</td>
+                <td>{{ingredient.de}}</td>
+                <td>{{ingredient.nl}}</td>
+                <td>{{ingredient.category}}</td>
+                <td>{{ingredient.notes}}</td>
+                <td>{{ingredient.snomedCTId}}</td>
+                <td>{{ingredient.synonyms}}</td>
+                <td>{{ingredient.casCode}}</td>
+                <td>{{ingredient.deprecated}}</td>
+                <td>{{ingredient.innovation}}</td>
+                <td>{{ingredient.creationDateUsageHum | date:'mediumDate'}}</td>
+                <td>{{ingredient.creationDateUsageVet | date:'mediumDate'}}</td>
+                <td>{{ingredient.residualProduct}}</td>
+                <td>{{ingredient.type}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ingredient', ingredient.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ingredient/'+ ingredient.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ingredient/'+ ingredient.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="ingredients && ingredients.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

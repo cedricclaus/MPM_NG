@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "en",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "de",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nl",
+            "fieldType": "String"
+        }
+    ],
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "routeOfAdministration",
+    "pagination": "pagination",
+    "microserviceName": "MPMReferenceData",
+    "searchEngine": false
+}

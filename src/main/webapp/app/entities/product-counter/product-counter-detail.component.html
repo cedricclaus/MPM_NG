@@ -1,0 +1,49 @@
+
+<div *ngIf="productCounter">
+    <h2><span>Product Counter</span> {{productCounter.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{productCounter.name}}</span>
+        </dd>
+        <dt><span>Number</span></dt>
+        <dd>
+            <span>{{productCounter.number}}</span>
+        </dd>
+        <dt><span>Strength</span></dt>
+        <dd>
+            <span>{{productCounter.strength}}</span>
+        </dd>
+        <dt><span>Pharmaceutical Form</span></dt>
+        <dd>
+            <span>{{productCounter.pharmaceuticalForm}}</span>
+        </dd>
+        <dt><span>Status</span></dt>
+        <dd>
+            <span>{{productCounter.status}}</span>
+        </dd>
+        <dt><span>Status Id</span></dt>
+        <dd>
+            <span>{{productCounter.statusId}}</span>
+        </dd>
+        <dt><span>Pc Id</span></dt>
+        <dd>
+            <span>{{productCounter.pcId}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'product-counter/'+ productCounter.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

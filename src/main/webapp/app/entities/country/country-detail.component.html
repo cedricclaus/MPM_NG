@@ -1,0 +1,49 @@
+
+<div *ngIf="country">
+    <h2><span>Country</span> {{country.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{country.code}}</span>
+        </dd>
+        <dt><span>En</span></dt>
+        <dd>
+            <span>{{country.en}}</span>
+        </dd>
+        <dt><span>Fr</span></dt>
+        <dd>
+            <span>{{country.fr}}</span>
+        </dd>
+        <dt><span>De</span></dt>
+        <dd>
+            <span>{{country.de}}</span>
+        </dd>
+        <dt><span>Nl</span></dt>
+        <dd>
+            <span>{{country.nl}}</span>
+        </dd>
+        <dt><span>From</span></dt>
+        <dd>
+            <span>{{country.from}}</span>
+        </dd>
+        <dt><span>Till</span></dt>
+        <dd>
+            <span>{{country.till}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'country/'+ country.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

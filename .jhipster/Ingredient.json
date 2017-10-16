@@ -1,0 +1,76 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "en",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "de",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "snomedCTId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "synonyms",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "casCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "deprecated",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "innovation",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "creationDateUsageHum",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "creationDateUsageVet",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "residualProduct",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "IngredientType",
+            "fieldValues": "ACTIVE_SUBSTANCE,EXCIPIENT",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "ingredient",
+    "pagination": "pagination",
+    "microserviceName": "MPMPharmaceuticalProduct",
+    "searchEngine": false
+}

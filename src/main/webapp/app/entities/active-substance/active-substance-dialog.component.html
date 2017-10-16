@@ -1,0 +1,116 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myActiveSubstanceLabel">Create or edit a Active Substance</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!activeSubstance.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="activeSubstance.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="activeSubstance.name"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_ingredientId">Ingredient Id</label>
+            <input type="text" class="form-control" name="ingredientId" id="field_ingredientId"
+                [(ngModel)]="activeSubstance.ingredientId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_notes">Notes</label>
+            <input type="text" class="form-control" name="notes" id="field_notes"
+                [(ngModel)]="activeSubstance.notes"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_asEquivalent">As Equivalent</label>
+            <input type="text" class="form-control" name="asEquivalent" id="field_asEquivalent"
+                [(ngModel)]="activeSubstance.asEquivalent"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_additionalInfo">Additional Info</label>
+            <input type="text" class="form-control" name="additionalInfo" id="field_additionalInfo"
+                [(ngModel)]="activeSubstance.additionalInfo"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_amount">Amount</label>
+            <input type="number" class="form-control" name="amount" id="field_amount"
+                [(ngModel)]="activeSubstance.amount"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_amountEq">Amount Eq</label>
+            <input type="number" class="form-control" name="amountEq" id="field_amountEq"
+                [(ngModel)]="activeSubstance.amountEq"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_nonNumericalAmount">Non Numerical Amount</label>
+            <input type="text" class="form-control" name="nonNumericalAmount" id="field_nonNumericalAmount"
+                [(ngModel)]="activeSubstance.nonNumericalAmount"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_nonNumericalAmountEq">Non Numerical Amount Eq</label>
+            <input type="text" class="form-control" name="nonNumericalAmountEq" id="field_nonNumericalAmountEq"
+                [(ngModel)]="activeSubstance.nonNumericalAmountEq"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_unitId">Unit Id</label>
+            <input type="text" class="form-control" name="unitId" id="field_unitId"
+                [(ngModel)]="activeSubstance.unitId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_unit">Unit</label>
+            <input type="text" class="form-control" name="unit" id="field_unit"
+                [(ngModel)]="activeSubstance.unit"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_unitEq">Unit Eq</label>
+            <input type="text" class="form-control" name="unitEq" id="field_unitEq"
+                [(ngModel)]="activeSubstance.unitEq"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_unitEqId">Unit Eq Id</label>
+            <input type="text" class="form-control" name="unitEqId" id="field_unitEqId"
+                [(ngModel)]="activeSubstance.unitEqId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pcId">Pc Id</label>
+            <input type="text" class="form-control" name="pcId" id="field_pcId"
+                [(ngModel)]="activeSubstance.pcId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pccId">Pcc Id</label>
+            <input type="text" class="form-control" name="pccId" id="field_pccId"
+                [(ngModel)]="activeSubstance.pccId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pccEn">Pcc En</label>
+            <input type="text" class="form-control" name="pccEn" id="field_pccEn"
+                [(ngModel)]="activeSubstance.pccEn"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_ingredientEqId">Ingredient Eq Id</label>
+            <input type="text" class="form-control" name="ingredientEqId" id="field_ingredientEqId"
+                [(ngModel)]="activeSubstance.ingredientEqId" required />
+            <div [hidden]="!(editForm.controls.ingredientEqId?.dirty && editForm.controls.ingredientEqId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ingredientEqId?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

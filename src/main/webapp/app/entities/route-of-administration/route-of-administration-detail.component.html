@@ -1,0 +1,41 @@
+
+<div *ngIf="routeOfAdministration">
+    <h2><span>Route Of Administration</span> {{routeOfAdministration.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{routeOfAdministration.code}}</span>
+        </dd>
+        <dt><span>En</span></dt>
+        <dd>
+            <span>{{routeOfAdministration.en}}</span>
+        </dd>
+        <dt><span>Fr</span></dt>
+        <dd>
+            <span>{{routeOfAdministration.fr}}</span>
+        </dd>
+        <dt><span>De</span></dt>
+        <dd>
+            <span>{{routeOfAdministration.de}}</span>
+        </dd>
+        <dt><span>Nl</span></dt>
+        <dd>
+            <span>{{routeOfAdministration.nl}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'route-of-administration/'+ routeOfAdministration.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

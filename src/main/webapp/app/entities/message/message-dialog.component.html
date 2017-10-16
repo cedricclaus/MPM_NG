@@ -1,0 +1,97 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMessageLabel">Create or edit a Message</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!message.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="message.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_messageId">Message Id</label>
+            <input type="text" class="form-control" name="messageId" id="field_messageId"
+                [(ngModel)]="message.messageId" required />
+            <div [hidden]="!(editForm.controls.messageId?.dirty && editForm.controls.messageId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.messageId?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_timestamp">Timestamp</label>
+            <div class="d-flex">
+                <input id="field_timestamp" type="datetime-local" class="form-control" name="timestamp" [(ngModel)]="message.timestamp"
+                required  />
+            </div>
+            <div [hidden]="!(editForm.controls.timestamp?.dirty && editForm.controls.timestamp?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.timestamp?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.timestamp?.errors?.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_user">User</label>
+            <input type="text" class="form-control" name="user" id="field_user"
+                [(ngModel)]="message.user" required />
+            <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.user?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                [(ngModel)]="message.type" required />
+            <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.type?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_routingKey">Routing Key</label>
+            <input type="text" class="form-control" name="routingKey" id="field_routingKey"
+                [(ngModel)]="message.routingKey" required />
+            <div [hidden]="!(editForm.controls.routingKey?.dirty && editForm.controls.routingKey?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.routingKey?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_queueName">Queue Name</label>
+            <input type="text" class="form-control" name="queueName" id="field_queueName"
+                [(ngModel)]="message.queueName" required />
+            <div [hidden]="!(editForm.controls.queueName?.dirty && editForm.controls.queueName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.queueName?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,69 @@
+
+<div *ngIf="productGroup">
+    <h2><span>Product Group</span> {{productGroup.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{productGroup.name}}</span>
+        </dd>
+        <dt><span>Number</span></dt>
+        <dd>
+            <span>{{productGroup.number}}</span>
+        </dd>
+        <dt><span>Deprecated</span></dt>
+        <dd>
+            <span>{{productGroup.deprecated}}</span>
+        </dd>
+        <dt><span>Usage Code</span></dt>
+        <dd>
+            <span>{{productGroup.usageCode}}</span>
+        </dd>
+        <dt><span>Usage Id</span></dt>
+        <dd>
+            <span>{{productGroup.usageId}}</span>
+        </dd>
+        <dt><span>Procedure Type Code</span></dt>
+        <dd>
+            <span>{{productGroup.procedureTypeCode}}</span>
+        </dd>
+        <dt><span>Procedure Type Id</span></dt>
+        <dd>
+            <span>{{productGroup.procedureTypeId}}</span>
+        </dd>
+        <dt><span>Autorization Type Code</span></dt>
+        <dd>
+            <span>{{productGroup.autorizationTypeCode}}</span>
+        </dd>
+        <dt><span>Autorization Type Id</span></dt>
+        <dd>
+            <span>{{productGroup.autorizationTypeId}}</span>
+        </dd>
+        <dt><span>Product Type Code</span></dt>
+        <dd>
+            <span>{{productGroup.productTypeCode}}</span>
+        </dd>
+        <dt><span>Product Type Id</span></dt>
+        <dd>
+            <span>{{productGroup.productTypeId}}</span>
+        </dd>
+        <dt><span>Allo Homeo</span></dt>
+        <dd>
+            <span>{{productGroup.alloHomeo}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'product-group/'+ productGroup.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
